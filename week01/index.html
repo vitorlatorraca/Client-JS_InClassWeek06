@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <style>
+        /* CSS moderno usando Flexbox para centralizar o conteúdo */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .counter {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Div para mostrar o contador -->
+    <div class="counter" id="counter">0</div>
+    <!-- Botão para incrementar o contador -->
+    <button class="button" id="incrementButton">Increment</button>
+
+    <script>
+        // Referência ao elemento do contador
+        const counterElement = document.getElementById('counter');
+        // Referência ao botão
+        const incrementButton = document.getElementById('incrementButton');
+
+        // Variável para armazenar o valor do contador
+        let counterValue = 0;
+
+        // Função para incrementar o contador
+        incrementButton.onclick = () => {
+            counterValue++;
+            counterElement.textContent = counterValue;
+        };
+    </script>
+</body>
+</html>

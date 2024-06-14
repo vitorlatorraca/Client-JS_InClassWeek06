@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Code and Key Value Display</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .key-info {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Divs to display the pressed key and its press count -->
+    <div class="key-info" id="keyLetter">Last Pressed Key: </div>
+    <div class="key-info" id="keyCount">Press Count: 0</div>
+
+    <script>
+        // References to elements displaying the pressed key and press count
+        const keyLetterElement = document.getElementById('keyLetter');
+        const keyCountElement = document.getElementById('keyCount');
+
+        // Object to store press counts per key
+        const keyPressCount = {};
+
+        // Function to update information on the pressed key
+        document.addEventListener('keydown', (event) => {
+            const key = event.key.toLowerCase(); // Getting the pressed key in lowercase
+            keyLetterElement.textContent = `Last Pressed Key: ${key}`;
+            
+            // Updating the press count for this key
+            if (keyPressCount[key]) {
+                keyPressCount[key]++;
+            } else {
+                keyPressCount[key] = 1;
+            }
+            keyCountElement.textContent = `Press Count: ${keyPressCount[key]}`;
+        });
+    </script>
+</body>
+</html>
